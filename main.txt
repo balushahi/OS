@@ -256,3 +256,62 @@ int main() {
 
     return 0;
 }
+
+/////////////////////////////////////////////PROGRAM/6////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////1. Internal Fragmentation
+
+#include <stdio.h>
+
+int main() {
+    int blockSize[10], processSize[10], n, i, totalInternalFragmentation = 0;
+
+    printf("Enter number of processes: ");
+    scanf("%d", &n);
+
+    printf("Enter block sizes:\n");
+    for(i = 0; i < n; i++) {
+        scanf("%d", &blockSize[i]);
+    }
+
+    printf("Enter process sizes:\n");
+    for(i = 0; i < n; i++) {
+        scanf("%d", &processSize[i]);
+    }
+
+    for(i = 0; i < n; i++) {
+        if(processSize[i] <= blockSize[i]) {
+            totalInternalFragmentation += blockSize[i] - processSize[i];
+        }
+    }
+
+    printf("\nTotal Internal Fragmentation: %d\n", totalInternalFragmentation);
+
+    return 0;
+}
+
+/////////////////////////////////////////////////////////////////2. External Fragmentation
+
+#include <stdio.h>
+
+int main() {
+    int freeBlock[10], n, i, totalFree = 0;
+
+    printf("Enter number of free memory blocks: ");
+    scanf("%d", &n);
+
+    printf("Enter sizes of free blocks:\n");
+    for(i = 0; i < n; i++) {
+        scanf("%d", &freeBlock[i]);
+        totalFree += freeBlock[i];
+    }
+
+    printf("\nTotal External Fragmentation: %d\n", totalFree);
+
+    return 0;
+}
+
+/////////////////////////////////////////////PROGRAM/7////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////1. Internal Fragmentation
+
